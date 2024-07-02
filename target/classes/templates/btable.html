@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap-3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-table-1.22.3/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/bootstrap-select/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/Css/mycss.css">
+    <script src="/scripts/jquery-3.0.0.min.js"></script>
+    <script src="/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/bootstrap-table-1.22.3/js/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="/scripts/btable.js"></script>
+    <script src="/bootstrap-table-1.22.3/js/bootstrap-table-zh-CN.js"></script>
+    <script src="/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="/bootstrap-datetimepicker/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="/bootstrap-select/js/bootstrap-select.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row" style="margin-top: 30px;margin-left: 1px" id="toolbar">
+                <div class="col-md-1">
+                  <input id="did" type="text" class="form-control" placeholder="平台ID">
+                </div>
+                <div class="col-md-1">
+                  <input id="tplId"type="text" class="form-control" placeholder="模板ID">
+                </div>
+                <div class="col-md-2">
+                  <input id="mobile" type="text" class="form-control" placeholder="电话号码">
+                </div>
+                <div class="col-md-2">
+                <input type="text" class="form-control" id="startTime" placeholder="开始时间">
+                </div>
+                <div class="col-md-2">
+                <input  type="text" class="form-control" id="endTime" placeholder="结束时间">
+                </div>
+                <div class="input-group-btn col-md-4">
+                    <button class="btn btn-primary" type="button" onclick="mySearch()">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>查询
+                    </button>
+                   <button class="btn btn-secondary" type="button">
+                       <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>重置
+                   </button>
+                    <button class="btn btn-default" type="button"  data-toggle="modal" data-target="#myModal">
+                        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>导出
+                    </button>
+                </div>
+    </div>
+</div>
+<div class="container-fluid" style="margin-top: 10px">
+    <table id="myTable" data-mobile-responsive="true">
+    </table>
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="import-form" action="/fileImport" method="get">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">导出信息</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" id="queryParams"  name="queryParams" style="display:none;">
+                <label for="messageCount" class="control-label">数据总量:</label>
+                <input type="text" class="form-control" id="messageCount" name="messageCount">
+                <label for="file-path" class="control-label">文件生成路径:</label>
+                <input type="text" class="form-control" id="file-path" name="file-path">
+                <label for="select-params" class="control-label">涉及字段:</label>
+                <select id ="select-params" name="select-params" class="form-control selectpicker" multiple="multiple" multiple data-none-selected-text="请选择">
+                    <option value="did">平台ID</option>
+                    <option value="msgPort">端口号</option>
+                    <option value="content">短信内容</option>
+                    <option value="mobile">电话号码</option>
+                    <option value="tplId">模板ID</option>
+                    <option value="recordTime">记录时间</option>
+                    <option value="result">发送状态</option>
+                </select>
+                <input type="text" class="form-control" id="selectParamsArrays" name="selectParamsArrays" style="display:none;">
+                <label  class="control-label" style="margin-top: 10px">文件格式:</label>
+                <label class="radio-inline">
+                    <input type="radio"  value="txt"  id="txt" name="fileType">TXT
+                </label>
+                <label class="radio-inline">
+                    <input type="radio"  value="excel" id="excel" name="fileType">EXCEL
+                </label>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="submitModal">提交更改</button>
+            </div>
+        </div>
+        </form>
+        </div><!-- /.modal-content -->
+</div>
+</div><!-- /.modal -->
+
+<!-- 号码为空提示 -->
+<div class="modal fade" id="emptyNotice" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <div class="alert alert-warning alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert"
+                        aria-hidden="true">
+                    &times;
+                </button>
+                <strong>警告</strong>  号码数量为0，不进行号码数据处理!!!
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

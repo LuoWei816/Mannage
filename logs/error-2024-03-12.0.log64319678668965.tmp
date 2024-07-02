@@ -1,0 +1,16 @@
+2024-03-12 11:17:12.564 [qtp792488644-14] ERROR com.pushpm.controller.MessagesRecvHandle  加密失败
+### Error querying database.  Cause: java.sql.SQLException: 无效的 SQL 类型: sqlKind = UNINITIALIZED
+### The error may exist in file [E:\Idea\IDEA_Project\pushpm-dbfiles-services\target\classes\mybatis\TlCorpRecvMsg.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: ?
+### Cause: java.sql.SQLException: 无效的 SQL 类型: sqlKind = UNINITIALIZED
+; uncategorized SQLException; SQL state [99999]; error code [17439]; 无效的 SQL 类型: sqlKind = UNINITIALIZED; nested exception is java.sql.SQLException: 无效的 SQL 类型: sqlKind = UNINITIALIZED
+2024-03-12 11:20:48.604 [qtp973604791-21] ERROR com.pushpm.controller.MessagesRecvHandle  加密失败
+### Error querying database.  Cause: java.sql.SQLException: 无效的 SQL 类型: sqlKind = UNINITIALIZED
+### The error may exist in file [E:\Idea\IDEA_Project\pushpm-dbfiles-services\target\classes\mybatis\TlCorpRecvMsg.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: ?
+### Cause: java.sql.SQLException: 无效的 SQL 类型: sqlKind = UNINITIALIZED
+; uncategorized SQLException; SQL state [99999]; error code [17439]; 无效的 SQL 类型: sqlKind = UNINITIALIZED; nested exception is java.sql.SQLException: 无效的 SQL 类型: sqlKind = UNINITIALIZED
